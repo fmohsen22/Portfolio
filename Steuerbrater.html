@@ -1,11 +1,7 @@
-
 <!DOCTYPE HTML>
-<!--
-	Ongoing Private Projects - Landed by HTML5 UP
--->
 <html>
 <head>
-  <title>Ongoing Private Projects - Steuerbrater</title>
+  <title>Ongoing Private Projects - Steuerberater</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <link rel="stylesheet" href="assets/css/main.css" />
@@ -25,18 +21,17 @@
           <ul>
             <li><a href="projects.html">Projects & Work experiences</a></li>
             <li><a href="right-sidebar.html">Technologies</a></li>
-            <li><a href="no-sidebar.html">Cerificates and learning path</a></li>
+            <li><a href="no-sidebar.html">Certificates and Learning Path</a></li>
             <li>
-              <a href="products.html">Ongoing Private projects and Products</a>
+              <a href="products.html">Ongoing Private Projects and Products</a>
               <ul>
                 <li><a href="SearchEngine.html">Search Engine for Atlassian</a></li>
-                <li><a href="Steuerbrater.html">Online Steuerbrater</a></li>
+                <li><a href="Steuerberater.html">Online Steuerberater</a></li>
               </ul>
             </li>
           </ul>
         </li>
-        <!--							<li><a href="elements.html">Elements</a></li>-->
-        <li><a href="assets/files/Mohsen_Fakhari_Resume_08012025.pdf" class="button primary" download="Mohsen_Fakhari_CV">Download actuall My CV</a></li>
+        <li><a href="assets/files/Mohsen_Fakhari_Resume_08012025.pdf" class="button primary" download="Mohsen_Fakhari_CV">Download My CV</a></li>
       </ul>
     </nav>
   </header>
@@ -46,65 +41,73 @@
     <div class="container">
       <header class="major">
         <h2>Ongoing Private Projects and Products (Steuerberater)</h2>
-        <p>Innovative ideas and solutions I'm currently working on.</p>
+        <p>An advanced tax advisory application powered by AI and computational logic.</p>
       </header>
 
       <!-- Content -->
       <section id="content">
-        <a href="#" class="image fit"><img src="images/Steuerbrater.png" alt="Ongoing Projects" /></a>
+        <a href="#" class="image fit"><img src="images/Steuerbrater.png" alt="Steuerberater Project" /></a>
 
-        <!-- Project 1 -->
-        <h3>Technical Plan for Steuerberater Application</h3>
+        <!-- Project Details -->
+        <h3>Enhanced Architecture for Steuerberater Application</h3>
         <p>
-          <strong>1. Introduction</strong><br>
-          This application aims to help users calculate taxes and prepare Steuererklärung (tax declarations) by analyzing financial laws using a BERT-based model and performing complex mathematical operations with WolframAlpha.
+          <strong>1. Purpose</strong><br>
+          This application simplifies tax calculations and declarations by utilizing AI models and external APIs for processing Austrian tax laws and regulations.
         </p>
+
         <p>
-          <strong>2. High-Level Architecture</strong><br>
+          <strong>2. Application Architecture</strong><br>
         <ul>
-          <li><strong>Frontend (User Interface):</strong> Collects user inputs (e.g., income, expenses, receipts). Displays the final tax results and explanations.</li>
-          <li><strong>Backend:</strong> Integrates BERT for legal analysis and WolframAlpha for calculations.</li>
-          <li><strong>Database:</strong> Stores user inputs, extracted rules, and historical results.</li>
-          <li><strong>AI Models:</strong> BERT and WolframAlpha for analysis and symbolic computations.</li>
+          <li><strong>Frontend:</strong> A React.js-based interface for collecting user inputs (e.g., income, expenses, property details) and displaying results.</li>
+          <li><strong>Layer 1:</strong> A BERT-based model for extracting relevant tax laws.</li>
+          <li><strong>Layer 2:</strong> Summarization and rule extraction from the retrieved tax laws.</li>
+          <li><strong>Layer 3:</strong> Backend logic for tax calculations, integrating rules and mathematical formulas.</li>
+          <li><strong>API Integrations:</strong> WolframAlpha API for advanced formula evaluation and FinanzOnline API for automated submissions.</li>
         </ul>
         </p>
+
         <p>
           <strong>3. Workflow</strong><br>
         <ol>
-          <li><strong>Input Collection:</strong> User provides income, expenses, property details.</li>
-          <li><strong>Legal Rule Extraction:</strong> Use BERT to extract relevant tax rules.</li>
-          <li><strong>Mathematical Formula Evaluation:</strong> WolframAlpha evaluates formulas like APA and deductions.</li>
-          <li><strong>Tax Calculation:</strong> Use backend logic for deductions and taxable income.</li>
-          <li><strong>Validation:</strong> Validate results with BERT queries.</li>
-          <li><strong>Output Generation:</strong> Generate PDF or XML reports for Steuererklärung.</li>
+          <li>User inputs financial details and queries.</li>
+          <li>Layer 1 retrieves relevant laws using a fine-tuned BERT model.</li>
+          <li>Layer 2 processes laws to summarize key rules and extract conditions (e.g., percentages, thresholds).</li>
+          <li>Layer 3 calculates taxes using backend logic based on rules and inputs.</li>
+          <li>Results are presented in a clear and structured report, with the option to export as PDF or XML.</li>
         </ol>
         </p>
+
         <p>
-          <strong>4. Technical Details</strong><br>
+          <strong>4. Features</strong><br>
         <ul>
-          <li><strong>Frontend:</strong> React.js or Angular for UI development.</li>
-          <li><strong>Backend:</strong> Flask (Python) or Spring Boot (Java).</li>
-          <li><strong>AI Models:</strong> BERT (deepset/bert-base-german-cased-squad2) and WolframAlpha API.</li>
-          <li><strong>Libraries and Tools:</strong> Hugging Face Transformers, WolframAlpha API, SymPy, and FPDF.</li>
+          <li>Customizable tax scenarios based on user inputs.</li>
+          <li>Accurate legal interpretations using AI models fine-tuned for Austrian laws.</li>
+          <li>Automated tax calculations with real-time results.</li>
+          <li>Integration with FinanzOnline for seamless submission.</li>
         </ul>
         </p>
+
         <p>
-          <strong>5. Implementation Steps</strong><br>
-        <ol>
-          <li>Set up BERT for rule extraction using Hugging Face Transformers.</li>
-          <li>Integrate WolframAlpha for formula evaluation using its API.</li>
-          <li>Combine extracted rules and formulas for backend calculations.</li>
-          <li>Generate Steuererklärung reports in PDF format.</li>
-        </ol>
-        </p>
-        <p>
-          <strong>6. Future Enhancements</strong><br>
+          <strong>5. Technical Stack</strong><br>
         <ul>
-          <li>Fine-tune BERT for Austrian tax laws.</li>
-          <li>Add additional models for complex reasoning.</li>
-          <li>Integrate FinanzOnline APIs for automated submissions.</li>
+          <li><strong>Frontend:</strong> React.js</li>
+          <li><strong>Backend:</strong> Python (Flask) for APIs and integration.</li>
+          <li><strong>AI Models:</strong> SentenceTransformer (paraphrase-multilingual-MiniLM-L12-v2) for law retrieval.</li>
+          <li><strong>APIs:</strong> WolframAlpha for calculations, FinanzOnline for tax submissions.</li>
+          <li><strong>Tools:</strong> Hugging Face Transformers, SymPy, FPDF for report generation.</li>
         </ul>
         </p>
+
+        <p>
+          <strong>6. Next Steps</strong><br>
+        <ul>
+          <li>Integrate a user authentication module for saving progress and reports.</li>
+          <li>Optimize AI models for higher accuracy in law retrieval and summarization.</li>
+          <li>Enhance the user interface for better usability and accessibility.</li>
+          <li>Expand the application to handle multiple languages and international tax laws.</li>
+        </ul>
+        </p>
+
       </section>
     </div>
   </div>
