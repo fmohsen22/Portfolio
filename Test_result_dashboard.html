@@ -1,0 +1,241 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Ongoing Private Projects - Universal Test Results Dashboard</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+<body class="is-preload">
+<div id="page-wrapper">
+
+  <!-- Header -->
+  <header id="header">
+    <h1 id="logo"><a href="index.html">My Portfolio</a></h1>
+    <nav id="nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li>
+          <a href="#">Menu</a>
+          <ul>
+            <li><a href="projects.html">Projects & Work Experiences</a></li>
+            <li><a href="right-sidebar.html">Technologies</a></li>
+            <li><a href="no-sidebar.html">Certificates and Learning Path</a></li>
+            <li>
+              <a href="products.html">Ongoing Private Projects and Products</a>
+              <ul>
+                <li><a href="SearchEngine.html">Search Engine for Atlassian</a></li>
+                <li><a href="Steuerbrater.html">Online Steuerberater</a></li>
+                <li><a href="Test_result_dashboard.html">Test Results Dashboard</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="assets/files/Mohsen_Fakhari_Resume_08012025.pdf" class="button primary" download="Mohsen_Fakhari_CV">Download My CV</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <div id="main" class="wrapper style1">
+    <div class="container">
+      <header class="major">
+        <div style="text-align: center;">
+          <img src="images/TestTrackLogo.png" alt="TestTrack Logo" style="height: 40px; margin-bottom: 10px;" />
+          <h2>Technical Solution for Universal Test Results Dashboard</h2>
+        </div>
+        <p>This project provides a better and deep understanding of the status of our software reliability considering the whole test history, and also a detail overview of the test cases status through all connected test apps. </p>
+      </header>
+
+      <!-- Content -->
+      <section id="content">
+        <h3>Project Overview</h3>
+        <p>
+          <strong>Objective:</strong> Develop a real-time test results dashboard that integrates seamlessly with various testing tools (Tosca, SOAPUI, TestNG, SAP CBTA, and more). It will provide test execution results, logs, and analytics while ensuring modularity and scalability for future integrations.
+        </p>
+
+        <h4>Key Features</h4>
+        <ul>
+          <li><strong>Integration with multiple testing tools:</strong>
+            <ul>
+              <li>Tosca, TestNG, SoapUI, SAP CBTA, and others.</li>
+              <li>Supports both real-time and batch data submission.</li>
+            </ul>
+          </li>
+          <li><strong>Centralized results repository:</strong>
+            <ul>
+              <li>A JSON-based schema to ensure compatibility across tools.</li>
+              <li>Historical data storage and retrieval for trend analysis.</li>
+            </ul>
+          </li>
+          <li><strong>Real-time dashboard:</strong>
+            <ul>
+              <li>Live updates using WebSockets.</li>
+              <li>Detailed test execution data, logs, and metrics.</li>
+            </ul>
+          </li>
+          <li><strong>Customizable filters and views:</strong>
+            <ul>
+              <li>Filter results by tool, environment, date range, and status.</li>
+            </ul>
+          </li>
+        </ul>
+
+        <section id="technical-solution">
+          <h3>Technical Solution</h3>
+          <p>This technical solution outlines the detailed approach to integrating Tosca and SoapUI real-time reporting with the Universal Test Results Dashboard.</p>
+
+          <h4>1. Options for Extracting Tosca Results</h4>
+          <p>You can extract and send Tosca test results in real-time using one of the following methods:</p>
+          <ul>
+            <li><strong>Tosca CLI + Script:</strong> Export test results as XML files and convert them into a format that can be sent to the dashboard API.</li>
+            <li><strong>Tosca Event Listeners:</strong> Provides real-time updates during test execution by listening to specific test events.</li>
+            <li><strong>Tosca REST API:</strong> Uses the Tosca Server API to manage and extract results, ideal for enterprise-level setups.</li>
+          </ul>
+
+          <h4>2. Integrating SoapUI Test Results</h4>
+          <p>SoapUI test results can also be sent to the dashboard in real-time or through batch processing. Below are the integration methods:</p>
+          <ul>
+            <li><strong>SoapUI CLI + Script:</strong> Run tests via the SoapUI CLI, export results in XML/JSON, and convert them to the dashboard-compatible JSON schema.</li>
+            <li><strong>Groovy Scripting for Real-Time Reporting:</strong> Embed Groovy scripts in SoapUI to send results directly to the dashboard API during test execution.</li>
+          </ul>
+
+          <h4>3. Recommended Solutions</h4>
+          <p>Here’s how each tool can be integrated with the dashboard:</p>
+          <ul>
+            <li><strong>Tosca:</strong> Export test results via Tosca CLI, process them using scripts, and send them to the API for real-time updates.</li>
+            <li><strong>SoapUI:</strong> Use Groovy scripts within SoapUI to automate API submissions as tests execute. Alternatively, use the CLI for batch processing.</li>
+          </ul>
+
+          <h4>4. JSON Schema Example</h4>
+          <p>The dashboard API accepts test results in the following JSON format:</p>
+          <pre>
+{
+  "tool": "SoapUI",
+  "test_topic": "User Login API Validation",
+  "test_process": "Verify login with valid credentials",
+  "user_story": "US-101: As a user, I want to log in to the app",
+  "status": "Fail",
+  "timestamp": "2025-02-02T14:30:00Z",
+  "duration": 2.5,
+  "technical_info": {
+    "endpoint": "https://api.example.com/login",
+    "request": "{ \"email\": \"test@example.com\", \"password\": \"secret\" }",
+    "response": "{ \"error\": \"Invalid credentials\", \"code\": 401 }"
+  },
+  "failure_details": [
+    {
+      "message": "Status code 401 (expected 200)",
+      "assertion": "Valid Status Code"
+    }
+  ],
+  "screenshots": [
+    "https://s3.amazonaws.com/screenshots/login_fail_20240220.png"
+  ]
+}
+  </pre>
+
+          <h4>5. Dashboard Integration</h4>
+          <p>The dashboard provides the following features:</p>
+          <ul>
+            <li><strong>Real-Time Updates:</strong> Live results from Tosca and SoapUI are streamed to the dashboard as they execute.</li>
+            <li><strong>Test Details View:</strong> Displays test cases with key details, including logs, assertions, and failure reasons.</li>
+            <li><strong>Historical Analysis:</strong> Stores all test data in a centralized PostgreSQL database for trend analysis and reporting.</li>
+          </ul>
+          <div class="image fit">
+            <img src="images/SummaryMockup.png" alt="Summary View Mockup" />
+          </div>
+          <p>Example of a summary view showing key metrics like pass rate and active bugs.</p>
+          <div class="image fit">
+            <img src="images/detail_mockup.png" alt="Test Details Mockup" />
+          </div>
+          <p>Test details view for individual cases, including technical logs and screenshots.</p>
+
+          <h4>6. Tools & Technologies</h4>
+          <ul>
+            <li><strong>Frontend:</strong> React.js for building the dashboard interface.</li>
+            <li><strong>Backend:</strong> FastAPI for handling API requests and real-time WebSocket updates.</li>
+            <li><strong>Database:</strong> PostgreSQL with JSONB support for flexible test result storage.</li>
+            <li><strong>Integration:</strong> Scripts and APIs for Tosca and SoapUI, with flexibility to integrate other tools like TestNG and SAP CBTA.</li>
+          </ul>
+        </section>
+
+        <h3>Summary Mockup</h3>
+        <pre>
+[Test Results Dashboard]
++---------------------+---------------------+---------------------+
+| Total Tests: 1,230  | Pass Rate: 92%      | Active Bugs: 15     |
++---------------------+---------------------+---------------------+
+| Line Chart: Test Trends (Pass/Fail Over Time)                   |
+| X: Dates | Y: Pass Rate (%)                                      |
+| ▲ 95%                                                           |
+| │                                                                |
+| │      ▼ 80%                                                     |
+| └───────────────────────────────────────────────────────────────|
++---------------------+---------------------+---------------------+
+| Pie Chart: Failure Reasons   | Bar Chart: Tool Performance      |
+| ◼ Timeout (40%)              | Tosca: 95% Pass                  |
+| ◼ Assertion (30%)            | TestNG: 88% Pass                 |
+| ◼ SAP Error (20%)            | SoapUI: 90% Pass                 |
++---------------------+---------------------+---------------------+
+        </pre>
+
+        <h3>Test Details Mockup</h3>
+        <pre>
+[Recent Test Executions]
++---------------------+----------+------------+---------------------+
+| Test Name           | Status   | Tool       | Logs                |
++---------------------+----------+------------+---------------------+
+| SAP_InvoiceCheck    | 🟢 Pass | SAP        | View Logs ▶         |
+| Login_Test          | 🔴 Fail | Tosca      | View Logs ▶         |
+| Payment_API         | 🟡 Error| SoapUI     | View Logs ▶         |
++---------------------+----------+------------+---------------------+
+
+[Expanded Logs for "Login_Test"]
+- Error: Invalid credentials at step 2.
+- Debug: User: test@example.com
+- Screenshot: [link_to_s3]
+        </pre>
+
+        <h3>Tools & Libraries</h3>
+        <ul>
+          <li>Frontend: React.js, Chart.js.</li>
+          <li>Backend: FastAPI (Python).</li>
+          <li>Database: PostgreSQL (JSONB).</li>
+          <li>Integration: Groovy (SoapUI), Java (TestNG), Python (Tosca).</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <ul class="icons">
+      <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+      <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+      <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+      <li><a href="https://linkedin.com/in/mohsen-fakhari-80a044121" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+      <li><a href="https://github.com/fmohsen22" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+      <li><a href="mailto:fmohsen22@gmail.com" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+    </ul>
+    <ul class="copyright">
+      <li>&copy; Mohsen Fakhari. All rights reserved.</li>
+      <li>Design: <a href="https://mosi.com">Mosi</a></li>
+    </ul>
+  </footer>
+
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/jquery.dropotron.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
