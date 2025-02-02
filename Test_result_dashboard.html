@@ -1,6 +1,41 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+  <style>
+    section {
+        margin-top: 40px;
+        padding: 20px;
+        border-bottom: 1px solid #e0e0e0; /* Light gray for a soft separator */
+    }
+    ul {
+        margin-left: 25px;
+        margin-bottom: 20px;
+    }
+    p, li {
+        line-height: 1.8;
+    }
+    h3 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+        margin-top: 40px; /* Add top margin to separate sections */
+        color: #333; /* Slightly darker color for better readability */
+    }
+    h4 {
+        font-size: 1.5em;
+        margin-top: 30px;
+        margin-bottom: 10px;
+        font-weight: bold;
+        color: #555; /* Secondary color for differentiation */
+    }
+    pre {
+        background: #f4f4f4;
+        color: #2e2e2e;
+        padding: 15px;
+        border-radius: 5px;
+        overflow-x: auto;
+        font-size: 0.9em; /* Slightly smaller font for code */
+    }
+  </style>
   <title>Ongoing Private Projects - Universal Test Results Dashboard</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -81,7 +116,6 @@
             </ul>
           </li>
         </ul>
-
         <section id="technical-solution">
           <h3>Technical Solution</h3>
           <p>This technical solution outlines the detailed approach to integrating Tosca and SoapUI real-time reporting with the Universal Test Results Dashboard.</p>
@@ -158,6 +192,65 @@
             <li><strong>Backend:</strong> FastAPI for handling API requests and real-time WebSocket updates.</li>
             <li><strong>Database:</strong> PostgreSQL with JSONB support for flexible test result storage.</li>
             <li><strong>Integration:</strong> Scripts and APIs for Tosca and SoapUI, with flexibility to integrate other tools like TestNG and SAP CBTA.</li>
+          </ul>
+        </section>
+
+        <!-- Add Kiwi TCMS Integration Section -->
+        <section id="kiwi-tcms-integration">
+          <h3>Integrating Kiwi TCMS with TestTrack (combination with Test Management Tool)</h3>
+          <p>Kiwi TCMS is an open-source test case management system that provides centralized test repositories, execution tracking, and reporting. Here’s how you can integrate Kiwi TCMS with your TestTrack app:</p>
+
+          <h4>1. Setting Up Kiwi TCMS</h4>
+          <ul>
+            <li><strong>Hosting:</strong> Set up Kiwi TCMS using Docker for quick deployment or install it manually on your server.</li>
+            <li><strong>Access:</strong> Access the web interface at <code>http://localhost:8080</code> (or your server's IP).</li>
+            <li><strong>Database:</strong> Connect Kiwi TCMS to PostgreSQL for better scalability.</li>
+          </ul>
+
+          <h4>2. Kiwi TCMS API Configuration</h4>
+          <p>Enable the Kiwi TCMS REST API to allow communication between TestTrack and Kiwi TCMS:</p>
+          <ul>
+            <li><strong>Generate API Key:</strong> Navigate to <em>Profile > API Keys</em> in Kiwi TCMS to create an API token.</li>
+            <li><strong>API Endpoints:</strong> Use the following endpoints to interact with Kiwi TCMS:
+              <ul>
+                <li><code>POST /api/v1/testexecution/</code> to send test execution results.</li>
+                <li><code>POST /api/v1/testcase/</code> to import test cases.</li>
+              </ul>
+            </li>
+          </ul>
+
+          <h4>3. Connecting Kiwi TCMS with TestTrack</h4>
+          <p>To push test results from TestTrack to Kiwi TCMS:</p>
+          <ul>
+            <li><strong>Send Test Results:</strong> Configure TestTrack to send JSON payloads to the Kiwi TCMS API endpoint after test execution.</li>
+            <li><strong>Sync Test Cases:</strong> Periodically synchronize test cases between Kiwi TCMS and TestTrack using the API.</li>
+            <li><strong>Real-Time Updates:</strong> Use Kiwi TCMS Webhooks to notify TestTrack of new test results or updates.</li>
+          </ul>
+
+          <h4>4. Example Workflow</h4>
+          <pre>
+[Test Execution in TestTrack]
+  |
+  +--> [Send Results to Kiwi TCMS API]
+        |
+        +--> [Track and Analyze in Kiwi TCMS]
+              |
+              +--> [TestTrack Updates Dashboard for Real-Time Metrics]
+  </pre>
+
+          <h4>5. Benefits of Integration</h4>
+          <ul>
+            <li>Centralized test case repository and execution tracking.</li>
+            <li>Seamless data synchronization between Kiwi TCMS and TestTrack.</li>
+            <li>Improved visibility into software reliability and test case coverage.</li>
+            <li>Scalable and customizable for future tools and workflows.</li>
+          </ul>
+
+          <h4>6. Tools and Technologies</h4>
+          <ul>
+            <li><strong>Kiwi TCMS:</strong> Open-source test case management system.</li>
+            <li><strong>API Communication:</strong> Use Python's <code>requests</code> library or JavaScript's <code>axios</code> for integration.</li>
+            <li><strong>Webhooks:</strong> Automate real-time updates from Kiwi TCMS to TestTrack.</li>
           </ul>
         </section>
 
