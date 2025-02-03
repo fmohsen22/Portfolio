@@ -28,13 +28,24 @@
         color: #555; /* Secondary color for differentiation */
     }
     pre {
-        background: #f4f4f4;
-        color: #2e2e2e;
-        padding: 15px;
-        border-radius: 5px;
-        overflow-x: auto;
-        font-size: 0.9em; /* Slightly smaller font for code */
-    }
+    background: #2b2b2b; /* Dark background */
+    color: #f8f8f2; /* Light text */
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-size: 0.9em;
+    font-family: "Courier New", Courier, monospace;
+    line-height: 1.6;
+    white-space: pre-wrap; /* Wrap long lines */
+  }
+
+    /* Syntax highlighting */
+    pre .keyword { color: #66d9ef; font-weight: bold; } /* Keywords */
+    pre .string { color: #a6e22e; } /* Strings */
+    pre .number { color: #ae81ff; } /* Numbers */
+    pre .comment { color: #75715e; font-style: italic; } /* Comments */
+    pre .function { color: #e6db74; } /* Functions */
+    pre .property { color: #fd971f; } /* Properties */
   </style>
   <title>Ongoing Private Projects - Universal Test Results Dashboard</title>
   <meta charset="utf-8" />
@@ -151,30 +162,55 @@
           <h4>4. JSON Schema Example</h4>
           <p>The dashboard API accepts test results in the following JSON format:</p>
           <pre>
-{
-  "tool": "SoapUI",
-  "test_topic": "User Login API Validation",
-  "test_process": "Verify login with valid credentials",
-  "user_story": "US-101: As a user, I want to log in to the app",
-  "status": "Fail",
-  "timestamp": "2025-02-02T14:30:00Z",
-  "duration": 2.5,
-  "technical_info": {
-    "endpoint": "https://api.example.com/login",
-    "request": "{ \"email\": \"test@example.com\", \"password\": \"secret\" }",
-    "response": "{ \"error\": \"Invalid credentials\", \"code\": 401 }"
-  },
-  "failure_details": [
-    {
-      "message": "Status code 401 (expected 200)",
-      "assertion": "Valid Status Code"
-    }
-  ],
-  "screenshots": [
-    "https://s3.amazonaws.com/screenshots/login_fail_20240220.png"
-  ]
-}
-  </pre>
+      {
+        <span class="property">"applicationName"</span>: <span class="string">"User Management System"</span>,
+        <span class="property">"testCaseId"</span>: <span class="string">"TC-001"</span>,
+        <span class="property">"testCaseName"</span>: <span class="string">"Verify User Login API"</span>,
+        <span class="property">"testType"</span>: <span class="string">"Regression"</span>,
+        <span class="property">"priority"</span>: <span class="string">"High"</span>,
+        <span class="property">"status"</span>: <span class="string">"Fail"</span>,
+        <span class="property">"executionDetails"</span>: {
+          <span class="property">"executedBy"</span>: <span class="string">"John Doe"</span>,
+          <span class="property">"computer"</span>: <span class="string">"WORKSTATION-01"</span>,
+          <span class="property">"tool"</span>: <span class="string">"SoapUI"</span>,
+          <span class="property">"executionTime"</span>: <span class="string">"2025-02-02T14:30:00Z"</span>,
+          <span class="property">"durationInSeconds"</span>: <span class="number">12.5</span>,
+          <span class="property">"environment"</span>: <span class="string">"Staging"</span>,
+          <span class="property">"logs"</span>: <span class="string">"https://example.com/logs/testcase-TC-001.log"</span>,
+          <span class="property">"screenshots"</span>: [
+            <span class="string">"https://s3.amazonaws.com/screenshots/login_fail_20240220.png"</span>
+          ]
+        },
+        <span class="property">"testSteps"</span>: [
+          {
+            <span class="property">"stepId"</span>: <span class="number">1</span>,
+            <span class="property">"description"</span>: <span class="string">"Enter valid username"</span>,
+            <span class="property">"expectedResult"</span>: <span class="string">"Username accepted"</span>,
+            <span class="property">"actualResult"</span>: <span class="string">"Username accepted"</span>,
+            <span class="property">"status"</span>: <span class="string">"Pass"</span>,
+            <span class="property">"durationInSeconds"</span>: <span class="number">2.0</span>,
+            <span class="property">"log"</span>: <span class="string">"Step 1 executed successfully."</span>,
+            <span class="property">"screenshot"</span>: <span class="string">null</span>
+          },
+          {
+            <span class="property">"stepId"</span>: <span class="number">2</span>,
+            <span class="property">"description"</span>: <span class="string">"Enter valid password"</span>,
+            <span class="property">"expectedResult"</span>: <span class="string">"Password accepted"</span>,
+            <span class="property">"actualResult"</span>: <span class="string">"Invalid credentials"</span>,
+            <span class="property">"status"</span>: <span class="string">"Fail"</span>,
+            <span class="property">"durationInSeconds"</span>: <span class="number">3.5</span>,
+            <span class="property">"log"</span>: <span class="string">"Step 2 failed due to invalid password."</span>,
+            <span class="property">"screenshot"</span>: <span class="string">"https://s3.amazonaws.com/screenshots/step2_fail_20240220.png"</span>
+          }
+        ],
+        <span class="property">"jiraIntegration"</span>: {
+          <span class="property">"jiraTicketId"</span>: <span class="string">"JIRA-12345"</span>,
+          <span class="property">"ticketSummary"</span>: <span class="string">"Login Functionality - Regression Test"</span>,
+          <span class="property">"ticketUrl"</span>: <span class="string">"https://jira.example.com/browse/JIRA-12345"</span>
+        },
+        <span class="property">"tags"</span>: [<span class="string">"Smoke Test"</span>, <span class="string">"API Testing"</span>]
+      }
+      </pre>
 
           <h4>5. Dashboard Integration</h4>
           <p>The dashboard provides the following features:</p>
