@@ -5,7 +5,7 @@
     section {
         margin-top: 40px;
         padding: 20px;
-        border-bottom: 1px solid #e0e0e0; /* Light gray for a soft separator */
+        border-bottom: 1px solid #e0e0e0;
     }
     ul {
         margin-left: 25px;
@@ -17,37 +17,31 @@
     h3 {
         font-size: 1.8em;
         margin-bottom: 20px;
-        margin-top: 40px; /* Add top margin to separate sections */
-        color: #333; /* Slightly darker color for better readability */
+        margin-top: 40px;
+        color: #333;
     }
     h4 {
         font-size: 1.5em;
         margin-top: 30px;
         margin-bottom: 10px;
         font-weight: bold;
-        color: #555; /* Secondary color for differentiation */
+        color: #555;
     }
-    pre {
-    background: #2b2b2b; /* Dark background */
-    color: #f8f8f2; /* Light text */
-    padding: 15px;
-    border-radius: 5px;
-    overflow-x: auto;
-    font-size: 0.9em;
-    font-family: "Courier New", Courier, monospace;
-    line-height: 1.6;
-    white-space: pre-wrap; /* Wrap long lines */
-  }
-
-    /* Syntax highlighting */
-    pre .keyword { color: #66d9ef; font-weight: bold; } /* Keywords */
-    pre .string { color: #a6e22e; } /* Strings */
-    pre .number { color: #ae81ff; } /* Numbers */
-    pre .comment { color: #75715e; font-style: italic; } /* Comments */
-    pre .function { color: #e6db74; } /* Functions */
-    pre .property { color: #fd971f; } /* Properties */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    table, th, td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+    }
+    th {
+        background-color: #f4f4f4;
+    }
   </style>
-  <title>Ongoing Private Projects - Universal Test Results Dashboard</title>
+  <title>Test Management & Analysis Dashboard</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <link rel="stylesheet" href="assets/css/main.css" />
@@ -73,7 +67,7 @@
               <ul>
                 <li><a href="SearchEngine.html">Search Engine for Atlassian</a></li>
                 <li><a href="Steuerbrater.html">Online Steuerberater</a></li>
-                <li><a href="Test_result_dashboard.html">Real Time Test Management Tool</a></li>
+                <li><a href="Test_result_dashboard.html">Real-Time Test Management Tool</a></li>
               </ul>
             </li>
           </ul>
@@ -95,277 +89,106 @@
       <header class="major">
         <div style="text-align: center;">
           <img src="images/TestTrackLogo.png" alt="TestTrack Logo" style="height: 40px; margin-bottom: 10px;" />
-          <h2>Technical Solution for Universal Test Results Dashboard</h2>
+          <h2>🚀 Advanced Test Analysis & Root Cause Detection</h2>
         </div>
-        <p>This project provides a better and deep understanding of the status of our software reliability considering the whole test history, and also a detail overview of the test cases status through all connected test apps. </p>
+        <p>This project aims to **enhance test execution analysis, failure detection, and debugging automation**.
+          It provides deep insights into **test history, root cause analysis, and AI-powered failure prediction**.</p>
       </header>
 
       <!-- Content -->
       <section id="content">
-        <h3>Project Overview</h3>
+        <h3>📌 Project Overview</h3>
         <p>
-          <strong>Objective:</strong> Develop a real-time test results dashboard that integrates seamlessly with various testing tools (Tosca, SOAPUI, TestNG, SAP CBTA, and more). It will provide test execution results, logs, and analytics while ensuring modularity and scalability for future integrations.
+          <strong>Objective:</strong> Develop a <strong>real-time test analysis dashboard</strong> that:
+          - 📊 <strong>Monitors test execution trends</strong> across different environments.
+          - 🔍 <strong>Identifies failure root causes</strong> and test dependencies.
+          - 🧠 <strong>Prepares for AI-powered issue detection and prediction</strong>.
         </p>
 
-        <h4>Key Features</h4>
+        <h4>🔹 Enhancing Test Case Metadata</h4>
+        <p>Since execution times differ across environments, we need to <strong>track & analyze</strong> variations:</p>
+        <table>
+          <tr><th>Field</th><th>Description</th></tr>
+          <tr><td>`environment`</td><td>`development`, `test`, or `production`</td></tr>
+          <tr><td>`average_duration_per_env`</td><td>Historical execution time per environment</td></tr>
+          <tr><td>`median_duration_per_env`</td><td>More robust than average execution time</td></tr>
+          <tr><td>`std_dev_duration_per_env`</td><td>Standard deviation for variance analysis</td></tr>
+          <tr><td>`execution_variance_score`</td><td>Score indicating abnormal variations</td></tr>
+        </table>
+
+        <h4>📈 Advanced Test Duration Analysis</h4>
+        <p>Instead of just using averages, we implement <strong>statistical measures</strong>:</p>
         <ul>
-          <li><strong>Integration with multiple testing tools:</strong>
-            <ul>
-              <li>Tosca, TestNG, SoapUI, SAP CBTA, and others.</li>
-              <li>Supports both real-time and batch data submission.</li>
-            </ul>
-          </li>
-          <li><strong>Centralized results repository:</strong>
-            <ul>
-              <li>A JSON-based schema to ensure compatibility across tools.</li>
-              <li>Historical data storage and retrieval for trend analysis.</li>
-            </ul>
-          </li>
-          <li><strong>Real-time dashboard:</strong>
-            <ul>
-              <li>Live updates using WebSockets.</li>
-              <li>Detailed test execution data, logs, and metrics.</li>
-            </ul>
-          </li>
-          <li><strong>Customizable filters and views:</strong>
-            <ul>
-              <li>Filter results by tool, environment, date range, and status.</li>
-            </ul>
-          </li>
+          <li>✅ <strong>Median Execution Time</strong> (Less affected by outliers)</li>
+          <li>✅ <strong>Percentiles (P90, P95, P99)</strong> (Detect slowest executions)</li>
+          <li>✅ <strong>Standard Deviation</strong> (Measure stability & fluctuations)</li>
         </ul>
-        <section id="technical-solution">
-          <h3>Technical Solution</h3>
-          <p>This technical solution outlines the detailed approach to integrating Tosca and SoapUI real-time reporting with the Universal Test Results Dashboard.</p>
 
-          <h4>1. Options for Extracting Tosca Results</h4>
-          <p>You can extract and send Tosca test results in real-time using one of the following methods:</p>
-          <ul>
-            <li><strong>Tosca CLI + Script:</strong> Export test results as XML files and convert them into a format that can be sent to the dashboard API.</li>
-            <li><strong>Tosca Event Listeners:</strong> Provides real-time updates during test execution by listening to specific test events.</li>
-            <li><strong>Tosca REST API:</strong> Uses the Tosca Server API to manage and extract results, ideal for enterprise-level setups.</li>
-          </ul>
-
-          <h4>2. Integrating SoapUI Test Results</h4>
-          <p>SoapUI test results can also be sent to the dashboard in real-time or through batch processing. Below are the integration methods:</p>
-          <ul>
-            <li><strong>SoapUI CLI + Script:</strong> Run tests via the SoapUI CLI, export results in XML/JSON, and convert them to the dashboard-compatible JSON schema.</li>
-            <li><strong>Groovy Scripting for Real-Time Reporting:</strong> Embed Groovy scripts in SoapUI to send results directly to the dashboard API during test execution.</li>
-          </ul>
-
-          <h4>3. Recommended Solutions</h4>
-          <p>Here’s how each tool can be integrated with the dashboard:</p>
-          <ul>
-            <li><strong>Tosca:</strong> Export test results via Tosca CLI, process them using scripts, and send them to the API for real-time updates.</li>
-            <li><strong>SoapUI:</strong> Use Groovy scripts within SoapUI to automate API submissions as tests execute. Alternatively, use the CLI for batch processing.</li>
-          </ul>
-
-          <h4>4. JSON Schema Example</h4>
-          <p>The dashboard API accepts test results in the following JSON format:</p>
-          <pre>
-      {
-        <span class="property">"applicationName"</span>: <span class="string">"User Management System"</span>,
-        <span class="property">"testCaseId"</span>: <span class="string">"TC-001"</span>,
-        <span class="property">"testCaseName"</span>: <span class="string">"Verify User Login API"</span>,
-        <span class="property">"testType"</span>: <span class="string">"Regression"</span>,
-        <span class="property">"priority"</span>: <span class="string">"High"</span>,
-        <span class="property">"status"</span>: <span class="string">"Fail"</span>,
-        <span class="property">"executionDetails"</span>: {
-          <span class="property">"executedBy"</span>: <span class="string">"John Doe"</span>,
-          <span class="property">"computer"</span>: <span class="string">"WORKSTATION-01"</span>,
-          <span class="property">"tool"</span>: <span class="string">"SoapUI"</span>,
-          <span class="property">"executionTime"</span>: <span class="string">"2025-02-02T14:30:00Z"</span>,
-          <span class="property">"durationInSeconds"</span>: <span class="number">12.5</span>,
-          <span class="property">"environment"</span>: <span class="string">"Staging"</span>,
-          <span class="property">"logs"</span>: <span class="string">"https://example.com/logs/testcase-TC-001.log"</span>,
-          <span class="property">"screenshots"</span>: [
-            <span class="string">"https://s3.amazonaws.com/screenshots/login_fail_20240220.png"</span>
-          ]
-        },
-        <span class="property">"testSteps"</span>: [
-          {
-            <span class="property">"stepId"</span>: <span class="number">1</span>,
-            <span class="property">"description"</span>: <span class="string">"Enter valid username"</span>,
-            <span class="property">"expectedResult"</span>: <span class="string">"Username accepted"</span>,
-            <span class="property">"actualResult"</span>: <span class="string">"Username accepted"</span>,
-            <span class="property">"status"</span>: <span class="string">"Pass"</span>,
-            <span class="property">"durationInSeconds"</span>: <span class="number">2.0</span>,
-            <span class="property">"log"</span>: <span class="string">"Step 1 executed successfully."</span>,
-            <span class="property">"screenshot"</span>: <span class="string">null</span>
-          },
-          {
-            <span class="property">"stepId"</span>: <span class="number">2</span>,
-            <span class="property">"description"</span>: <span class="string">"Enter valid password"</span>,
-            <span class="property">"expectedResult"</span>: <span class="string">"Password accepted"</span>,
-            <span class="property">"actualResult"</span>: <span class="string">"Invalid credentials"</span>,
-            <span class="property">"status"</span>: <span class="string">"Fail"</span>,
-            <span class="property">"durationInSeconds"</span>: <span class="number">3.5</span>,
-            <span class="property">"log"</span>: <span class="string">"Step 2 failed due to invalid password."</span>,
-            <span class="property">"screenshot"</span>: <span class="string">"https://s3.amazonaws.com/screenshots/step2_fail_20240220.png"</span>
-          }
-        ],
-        <span class="property">"jiraIntegration"</span>: {
-          <span class="property">"jiraTicketId"</span>: <span class="string">"JIRA-12345"</span>,
-          <span class="property">"ticketSummary"</span>: <span class="string">"Login Functionality - Regression Test"</span>,
-          <span class="property">"ticketUrl"</span>: <span class="string">"https://jira.example.com/browse/JIRA-12345"</span>
-        },
-        <span class="property">"tags"</span>: [<span class="string">"Smoke Test"</span>, <span class="string">"API Testing"</span>]
-      }
-      </pre>
-
-          <h4>5. Dashboard Integration</h4>
-          <p>The dashboard provides the following features:</p>
-          <ul>
-            <li><strong>Real-Time Updates:</strong> Live results from Tosca and SoapUI are streamed to the dashboard as they execute.</li>
-            <li><strong>Test Details View:</strong> Displays test cases with key details, including logs, assertions, and failure reasons.</li>
-            <li><strong>Historical Analysis:</strong> Stores all test data in a centralized PostgreSQL database for trend analysis and reporting.</li>
-          </ul>
-          <div class="image fit">
-            <img src="images/SummaryMockup.png" alt="Summary View Mockup" />
-          </div>
-          <p>Example of a summary view showing key metrics like pass rate and active bugs.</p>
-          <div class="image fit">
-            <img src="images/detail_mockup.png" alt="Test Details Mockup" />
-          </div>
-          <p>Test details view for individual cases, including technical logs and screenshots.</p>
-
-          <h4>6. Tools & Technologies</h4>
-          <ul>
-            <li><strong>Frontend:</strong> React.js for building the dashboard interface.</li>
-            <li><strong>Backend:</strong> FastAPI for handling API requests and real-time WebSocket updates.</li>
-            <li><strong>Database:</strong> PostgreSQL with JSONB support for flexible test result storage.</li>
-            <li><strong>Integration:</strong> Scripts and APIs for Tosca and SoapUI, with flexibility to integrate other tools like TestNG and SAP CBTA.</li>
-          </ul>
-        </section>
-
-        <!-- Add Kiwi TCMS Integration Section -->
-        <section id="kiwi-tcms-integration">
-          <h3>Integrating Kiwi TCMS with TestTrack (combination with Test Management Tool)</h3>
-          <p>Kiwi TCMS is an open-source test case management system that provides centralized test repositories, execution tracking, and reporting. Here’s how you can integrate Kiwi TCMS with your TestTrack app:</p>
-
-          <h4>1. Setting Up Kiwi TCMS</h4>
-          <ul>
-            <li><strong>Hosting:</strong> Set up Kiwi TCMS using Docker for quick deployment or install it manually on your server.</li>
-            <li><strong>Access:</strong> Access the web interface at <code>http://localhost:8080</code> (or your server's IP).</li>
-            <li><strong>Database:</strong> Connect Kiwi TCMS to PostgreSQL for better scalability.</li>
-          </ul>
-
-          <h4>2. Kiwi TCMS API Configuration</h4>
-          <p>Enable the Kiwi TCMS REST API to allow communication between TestTrack and Kiwi TCMS:</p>
-          <ul>
-            <li><strong>Generate API Key:</strong> Navigate to <em>Profile > API Keys</em> in Kiwi TCMS to create an API token.</li>
-            <li><strong>API Endpoints:</strong> Use the following endpoints to interact with Kiwi TCMS:
-              <ul>
-                <li><code>POST /api/v1/testexecution/</code> to send test execution results.</li>
-                <li><code>POST /api/v1/testcase/</code> to import test cases.</li>
-              </ul>
-            </li>
-          </ul>
-
-          <h4>3. Connecting Kiwi TCMS with TestTrack</h4>
-          <p>To push test results from TestTrack to Kiwi TCMS:</p>
-          <ul>
-            <li><strong>Send Test Results:</strong> Configure TestTrack to send JSON payloads to the Kiwi TCMS API endpoint after test execution.</li>
-            <li><strong>Sync Test Cases:</strong> Periodically synchronize test cases between Kiwi TCMS and TestTrack using the API.</li>
-            <li><strong>Real-Time Updates:</strong> Use Kiwi TCMS Webhooks to notify TestTrack of new test results or updates.</li>
-          </ul>
-
-          <h4>4. Example Workflow</h4>
-          <pre>
-[Test Execution in TestTrack]
-  |
-  +--> [Send Results to Kiwi TCMS API]
-        |
-        +--> [Track and Analyze in Kiwi TCMS]
-              |
-              +--> [TestTrack Updates Dashboard for Real-Time Metrics]
-  </pre>
-
-          <h4>5. Benefits of Integration</h4>
-          <ul>
-            <li>Centralized test case repository and execution tracking.</li>
-            <li>Seamless data synchronization between Kiwi TCMS and TestTrack.</li>
-            <li>Improved visibility into software reliability and test case coverage.</li>
-            <li>Scalable and customizable for future tools and workflows.</li>
-          </ul>
-
-          <h4>6. Tools and Technologies</h4>
-          <ul>
-            <li><strong>Kiwi TCMS:</strong> Open-source test case management system.</li>
-            <li><strong>API Communication:</strong> Use Python's <code>requests</code> library or JavaScript's <code>axios</code> for integration.</li>
-            <li><strong>Webhooks:</strong> Automate real-time updates from Kiwi TCMS to TestTrack.</li>
-          </ul>
-        </section>
-
-        <h3>Summary Mockup</h3>
-        <pre>
-[Test Results Dashboard]
-+---------------------+---------------------+---------------------+
-| Total Tests: 1,230  | Pass Rate: 92%      | Active Bugs: 15     |
-+---------------------+---------------------+---------------------+
-| Line Chart: Test Trends (Pass/Fail Over Time)                   |
-| X: Dates | Y: Pass Rate (%)                                      |
-| ▲ 95%                                                           |
-| │                                                                |
-| │      ▼ 80%                                                     |
-| └───────────────────────────────────────────────────────────────|
-+---------------------+---------------------+---------------------+
-| Pie Chart: Failure Reasons   | Bar Chart: Tool Performance      |
-| ◼ Timeout (40%)              | Tosca: 95% Pass                  |
-| ◼ Assertion (30%)            | TestNG: 88% Pass                 |
-| ◼ SAP Error (20%)            | SoapUI: 90% Pass                 |
-+---------------------+---------------------+---------------------+
-        </pre>
-
-        <h3>Test Details Mockup</h3>
-        <pre>
-[Recent Test Executions]
-+---------------------+----------+------------+---------------------+
-| Test Name           | Status   | Tool       | Logs                |
-+---------------------+----------+------------+---------------------+
-| SAP_InvoiceCheck    | 🟢 Pass | SAP        | View Logs ▶         |
-| Login_Test          | 🔴 Fail | Tosca      | View Logs ▶         |
-| Payment_API         | 🟡 Error| SoapUI     | View Logs ▶         |
-+---------------------+----------+------------+---------------------+
-
-[Expanded Logs for "Login_Test"]
-- Error: Invalid credentials at step 2.
-- Debug: User: test@example.com
-- Screenshot: [link_to_s3]
-        </pre>
-
-        <h3>Tools & Libraries</h3>
+        <h4>🔎 Root Cause Detection Plan</h4>
+        <p>This system <strong>automatically finds the origin of a failed test case</strong>:</p>
         <ul>
-          <li>Frontend: React.js, Chart.js.</li>
-          <li>Backend: FastAPI (Python).</li>
-          <li>Database: PostgreSQL (JSONB).</li>
-          <li>Integration: Groovy (SoapUI), Java (TestNG), Python (Tosca).</li>
+          <li>✅ <strong>Log Analysis</strong> (Extract patterns like `"Invalid Login"`, `"Database Timeout"`, etc.)</li>
+          <li>✅ <strong>Failure Propagation</strong> (If Login API fails, dependent tests are blocked)</li>
+          <li>✅ <strong>Environment-Based Debugging</strong> (Compare staging vs. production failures)</li>
+          <li>✅ <strong>Historical Data Matching</strong> (Detect <strong>recurrent issues</strong> vs. <strong>new issues*</strong></li>
+        </ul>
+
+        <h4>🛠️ AI-Powered Failure Detection (Future)</h4>
+        <ul>
+          <li>🧠 <strong>Pattern Recognition in Failures</strong> (AI clusters similar failure logs)</li>
+          <li>⏳ <strong>Predict Future Failures</strong> (Estimate which tests will fail based on past trends)</li>
+          <li>📜 <strong>Automatic Log Analysis</strong> (AI extracts failure causes from logs & provides recommendations)</li>
+        </ul>
+
+        <h3>📊 Final Roadmap</h3>
+        <table>
+          <tr>
+            <th>Phase</th>
+            <th>Focus Area</th>
+            <th>Key Features</th>
+          </tr>
+          <tr>
+            <td><strong>📌 Phase 1 (Now)</strong></td>
+            <td>Test Analysis & Root Cause Detection</td>
+            <td>Test Relationships, Logs, Median Duration, Failure Propagation</td>
+          </tr>
+          <tr>
+            <td><strong>📌 Phase 2</strong></td>
+            <td>Graphical Reports & Trends</td>
+            <td>Test Execution Graphs, Root Cause Graphs, Historical Failure Reports</td>
+          </tr>
+          <tr>
+            <td><strong>📌 Phase 3</strong></td>
+            <td>AI-Powered Testing</td>
+            <td>Pattern Recognition, AI Failure Prediction, Smart Log Analysis</td>
+          </tr>
+          <tr>
+            <td><strong>📌 Phase 4</strong></td>
+            <td>Development & Project Tracking</td>
+            <td>Git Integration, Developer Workload Analysis, CI/CD Optimization</td>
+          </tr>
+          <tr>
+            <td><strong>📌 Phase 5</strong></td>
+            <td>Business & Commercialization</td>
+            <td>Startup Funding, Selling, Consulting</td>
+          </tr>
+        </table>
+
+        <h4>🚀 Immediate Next Steps</h4>
+        <ul>
+          <li>✅ Implement <strong>Test Case Relationships</strong> (Dependency tracking for failures)</li>
+          <li>✅ Enhance <strong>Root Cause Detection</strong> (Log pattern matching, recurrent issue tracking)</li>
+          <li>✅ Store & Compare <strong>Execution Times Across Environments</strong></li>
         </ul>
       </section>
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer id="footer">
-    <ul class="icons">
-      <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-      <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-      <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-      <li><a href="https://linkedin.com/in/mohsen-fakhari-80a044121" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-      <li><a href="https://github.com/fmohsen22" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-      <li><a href="mailto:fmohsen22@gmail.com" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
-    </ul>
-    <ul class="copyright">
-      <li>&copy; Mohsen Fakhari. All rights reserved.</li>
-      <li>Design: <a href="https://mosi.com">Mosi</a></li>
-    </ul>
-  </footer>
+</body>
 
-</div>
-
-<!-- Scripts -->
 <script>
   // Set the created and updated times (hardcoded for now; can be dynamically fetched later)
-  const createdTime = new Date("2025-02-02T12:00:00Z"); // Replace with your created time
+  const createdTime = new Date("2025-01-30T12:00:00Z"); // Replace with your created time
   const updatedTime = new Date(); // Current time or fetch dynamically from your system
 
   // Format dates
@@ -378,14 +201,4 @@
   document.getElementById('created-time').textContent = `Created: ${formatDate(createdTime)}`;
   document.getElementById('updated-time').textContent = `Last Updated: ${formatDate(updatedTime)}`;
 </script>
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/jquery.scrolly.min.js"></script>
-<script src="assets/js/jquery.dropotron.min.js"></script>
-<script src="assets/js/jquery.scrollex.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
-
-</body>
 </html>
