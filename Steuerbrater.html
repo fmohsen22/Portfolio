@@ -137,21 +137,21 @@
 </div>
 
 <!-- Scripts -->
-<script>
-  // Set the created and updated times (hardcoded for now; can be dynamically fetched later)
-  const createdTime = new Date("2025-01-05T12:00:00Z"); // Replace with your created time
-  const updatedTime = new Date(); // Current time or fetch dynamically from your system
+  <script>
+    // Set the created and updated times (hardcoded for now; can be dynamically fetched later)
+    const createdTime = new Date("2025-01-05T12:00:00Z"); // Replace with your created time
+    const updatedTime = new Date(); // Current time or fetch dynamically from your system
 
-  // Format dates
-  const formatDate = (date) => {
-    const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-    return date.toLocaleDateString(undefined, options);
-  };
+    // Format dates
+    const formatDate = (date) => {
+      const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+      return date.toLocaleDateString(undefined, options);
+    };
 
-  // Update the content in the section
-  document.getElementById('created-time').textContent = `Created: ${formatDate(createdTime)}`;
-  document.getElementById('updated-time').textContent = `Last Updated: ${formatDate(updatedTime)}`;
-</script>
+    // Update the content in the section
+    document.getElementById('created-time').textContent = `Created: ${formatDate(createdTime)}`;
+    document.getElementById('updated-time').textContent = `Last Updated: ${formatDate(updatedTime)}`;
+  </script>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/jquery.scrolly.min.js"></script>
 <script src="assets/js/jquery.dropotron.min.js"></script>
